@@ -1,8 +1,8 @@
 # main links
 main:
-  - title: "Home"
-    url: https://rezafaezi.com
-  - title: "Posts"
+  - title: "home"
+    url: /
+  - title: "posts"
     url: /categories
-  - title: "Whoami"
-    url: /whoami
+  - title: "about"
+    url: /about
