@@ -45,11 +45,6 @@ layout: default
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
-      
-<!-- This is for the back to top of the site arrow -->
-<aside class="page__top">
-  <a href="#site-nav"> <i class="fas fa-angle-up" style="color: #b4b4b3"></i></a>
-</aside>
 
       <footer class="page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}
@@ -62,6 +57,11 @@ layout: default
           <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].date_label | default: "Updated:" }}</strong> <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></p>
         {% endif %}
       </footer>
+
+  <!-- This is for the back to top of the site arrow -->
+  <aside class="page__top">
+    <a href="#site-nav"> <i class="fas fa-angle-up" style="color: #b4b4b3"></i></a>
+  </aside>
 
       {% if page.share %}{% include social-share.html %}{% endif %}
 
