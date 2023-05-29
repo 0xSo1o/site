@@ -484,7 +484,7 @@ Considering the large number of scripts available, running a simple vulnerabilit
 ```
 Nmap scan report for 10.129.33.227
 Host is up, received echo-reply ttl 63 (0.037s latency).
-Scanned at 2023-05-27 14:24:39 EEST for 320s
+Scanned for 320s
 
 PORT   STATE SERVICE REASON         VERSION
 80/tcp open  http    syn-ack ttl 63 Apache httpd 2.4.18 ((Ubuntu))
