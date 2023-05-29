@@ -18,7 +18,7 @@ tags:
 toc: true
 toc_sticky: true
 toc_label: "On This Blog"
-toc_icon: "terminal"
+toc_icon: "code"
 ---
 
 <!-- Toc Color -->
