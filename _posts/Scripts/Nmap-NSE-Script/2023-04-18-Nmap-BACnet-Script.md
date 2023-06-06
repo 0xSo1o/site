@@ -68,11 +68,11 @@ Subsequently, it merges the outcomes from both scans and delivers them to the us
 local nmap = require("nmap")
 local shortport = require("shortport")
 local stdnse = require("stdnse")
-local vulners = require("vulners")
+local vulns = require("vulns")
 
 description = [[
-  Checks for BACnet services on UDP ports 47808, 47809, 47810, and 47111.
-  Additionally, it leverages the Vulners library for vulnerability scanning.
+  Checks for BACnet services on UDP and TCP ports 47808, 47809, 47810, and 47111.
+  Additionally, it leverages the Vulners script for vulnerability scanning.
 ]]
 
 ---
@@ -90,7 +90,42 @@ end
 -- Performs the Vulners scan on the specified host and port.
 ---
 local function vulners_scan(host, port)
-  local status, result = vulners.scan(host, port, { ["bacnet"] = {} })
+  local vulners_script = vulns.script
+  if vulners_script then
+    local status, result = stdnse.new_try(vulners_script, host, port)
+    if status == false then
+      return stdnse.format_output(false, result)
+    end
+    return stdnse.format_output(true, result)
+  else
+    return stdnse.format_output(false, "Vulners script not available.")
+  end
+end
+
+---
+-- Executes the BACnet Nmap script on the specified host and port.
+---
+local function bacnet_nmap_script(host, port)
+  local protocols = { "udp", "tcp" }
+  local status, result
+
+  for _, protocol in ipairs(protocols) do
+    if port.protocol == protocol then
+      status, result = bacnet_scan(host, port)
+      if status then
+        return status, result
+      end
+    end
+  end
+
+  return stdnse.format_output(false, "BACnet service not found on the specified ports.")
+end
+
+---
+-- Executes the Vulners Nmap script on the specified host and port.
+---
+local function vulners_nmap_script(host, port)
+  local status, result = vulners_scan(host, port)
   return status, result
 end
 
@@ -98,10 +133,10 @@ end
 -- Executes the main action of the script.
 ---
 action = function(host, port)
-  local status, result = bacnet_scan(host, port)
+  local status, result = bacnet_nmap_script(host, port)
 
-  if status then
-    status, result = vulners_scan(host, port)
+  if not status then
+    status, result = vulners_nmap_script(host, port)
   end
 
   return status, result
@@ -127,19 +162,13 @@ end
 ---
 -- Determines the validity of the specified host.
 ---
-local function hostrule(host)
+hostrule = function(host)
   return is_valid_host(host)
 end
 
-local function portrule(host, port)
+portrule = function(host)
   return get_port_rule(host)
 end
-
----
--- Determines the validity of the specified port.
----
-
-categories = {"default", "discovery", "safe"}
 
 return {
   hostrule = hostrule,
@@ -147,5 +176,4 @@ return {
   action = action,
   categories = categories
 }
-
 ```
