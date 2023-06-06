@@ -4,9 +4,6 @@ permalink: /about
 layout: archive
 author_profile: true
 ---
-
-![image.png](/assets/images/main/avatar.png)
-
 # [~]$ whoami
 My name is Reza and go by the handle <b>0xSOLO</b>. Cyber Security is a field which I am deeply passioned about, and where I currently hold the position of a Cyber Security Specialist. In pursuit of my professional aspirations, I am actively enhancing my proficiency in Red-Teaming methodologies.
 
