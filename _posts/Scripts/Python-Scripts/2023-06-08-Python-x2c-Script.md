@@ -33,7 +33,7 @@ toc_icon: "code"
 
 # Intro
 
-As part of my professional endeavors, I actively engage in comprehensive assessments of large-scale networks with the objective of identifying potential vulnerabilities. Often upon reviewing the results, I would like to selectively extract specific components faster, such as the IP & MAC addresses as well as the vendor name, while omiting rest of th information. In response to this observation, I developed a set of Python scripts that effectively takes Nmap XML results and converts them to CSV file.
+As part of my professional endeavors, I actively engage in comprehensive assessments of large-scale networks with the objective of identifying potential vulnerabilities. Often upon reviewing the results, I would like to selectively extract specific components faster, such as the IP & MAC addresses as well as the vendor name, while omiting rest of the information. In response to this observation, I developed a set of Python scripts that effectively takes Nmap XML results and converts them to CSV file.
 
 <b></b>
 The scripts are designed to parse a specific type of data, namely IP, MAC, or vendor information, with the aim of expediting the information retrieval process. However, I encountered a challenge in developing a unified script that would enable the seamless population of each row, containing the corresponding data for IP, MAC, and vendor information.
