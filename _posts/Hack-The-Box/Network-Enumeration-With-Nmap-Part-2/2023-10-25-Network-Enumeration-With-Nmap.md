@@ -43,7 +43,7 @@ The <b>Network Enumeration with Nmap</b> module comprises a total of eight sub-m
 **Task:** Our client wants to know if we can identify which operating system their provided machine is running on. Submit the OS name as the answer. 
 {: .notice}
 
-To determine the operating system of the client's machine, we need to make use of the either <b>-A</b> flag or the notably faster <b>smb-os-discovery</b>script.
+To determine the operating system of the client's machine, we need to make use of the either <b>-A</b> flag or the notably faster <b>smb-os-discovery</b> script.
 
 ```console
 ┌──(solo㉿HTB)-[~]
@@ -77,7 +77,7 @@ Host script results:
 **Task:** After the configurations are transferred to the system, our client wants to know if it is possible to find out our target's DNS server version. Submit the DNS server version of the target as the answer.
 {: .notice}
 
-The task at hand is straightforward: we have to find out the target's DNS server version. We will start by utilizing -sSU flag to indicate that both TCP and UDP ports will be subject to the scanning process. Then we will target the port <span style="background-color: #38263ef0">53</span> as this is commonly used for DNS services. Lastly, we will deploy the <span style="background-color: #38263ef0">dns-nsid</span> script.
+The task at hand is straightforward: we have to find out the target's DNS server version. We will start by utilizing -<b>sSU</b> flag to indicate that both TCP and UDP ports will be subject to the scanning process. Then we will target the port <b>53</b> as this is commonly used for DNS services. Lastly, we will deploy the <b>dns-nsid</b> script.
 
 ```console
 ┌──(solo㉿HTB)-[~]
@@ -100,7 +100,7 @@ PORT   STATE    SERVICE
 **Task:** Now our client wants to know if it is possible to find out the version of the running services. Identify the version of service our client was talking about and submit the flag as the answer.
 {: .notice}
 
-The objective is to determine the versions of the currently active services. To achieve this, we will use the <span style="background-color: #38263ef0">netcat</span> tool. However, before proceeding, we need to determine the specific port we are targeting. This will be accomplished by conducting a full port scan (<b>-p-</b> ) which will reveal the port <span style="background-color: #38263ef0">50000</span>. Following this, we will set up a netcat listener to operate between the DNS port 53 and the recently discovered port 50000.
+The objective is to determine the versions of the currently active services. To achieve this, we will use the <b>netcat</b> tool. However, before proceeding, we need to determine the specific port we are targeting. This will be accomplished by conducting a full port scan (<b>-p-</b> ) which will reveal the port <b>50000</b>. Following this, we will set up a netcat listener to operate between the DNS port 53 and the recently discovered port 50000.
 
 
 ```console
