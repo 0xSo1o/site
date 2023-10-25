@@ -132,7 +132,7 @@ Host script results:
 **Task:** Perform a full TCP port scan on your target and create an HTML report. Submit the number of the highest port as the answer. 
 {: .notice}
 
-The task at hand is straightforward: we have to perform full TCP port scan which is done by utilising the <span style="background-color: #38263ef0">-p-</span> flag. This approach aligns with task 1 of the <b>Host and Port Scanning</b> module. To exclusively focus on port scanning, we will once again employ the <span style="background-color: #38263ef0">-Pn</span> flag to deactivate host discovery. Furthermore, we are utilizing the aggressive timing mode, denoted by the <span style="background-color: #38263ef0">-T</span> flag, to expedite our scans.
+The task at hand is straightforward: we have to perform full TCP port scan which is done by utilizing the <span style="background-color: #38263ef0">-p-</span> flag. This approach aligns with task 1 of the <b>Host and Port Scanning</b> module. To exclusively focus on port scanning, we will once again employ the <span style="background-color: #38263ef0">-Pn</span> flag to deactivate host discovery. Furthermore, we are utilizing the aggressive timing mode, denoted by the <span style="background-color: #38263ef0">-T</span> flag, to expedite our scans.
 
 <b></b>
 
