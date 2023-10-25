@@ -38,7 +38,7 @@ The <b>Network Enumeration with Nmap</b> module comprises a total of eight sub-m
 1. Host and Port Scanning
 2. Saving the Results
 3. Service Enumeration
-4. Nmap Script Engine (NSE)
+4. Nmap Script Engine (NSE) 
 
 ## 1. Host and Port Scanning
 **Task 1:** Find all TCP ports on your target. Submit the total number of found TCP ports as the answer. 
@@ -60,7 +60,6 @@ PORT      STATE SERVICE      REASON
 143/tcp   open  imap         syn-ack ttl 63
 445/tcp   open  microsoft-ds syn-ack ttl 63
 31337/tcp open  Elite        syn-ack ttl 63
-
 ```
 <b></b>
 
