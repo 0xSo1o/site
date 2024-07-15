@@ -7,7 +7,7 @@ header:
   overlay_filter: 0.5
 ribbon: Red
 excerpt: ""
-description: "Part. 2"
+description: ""
 categories:
   - HTB Write Up
 tags:
