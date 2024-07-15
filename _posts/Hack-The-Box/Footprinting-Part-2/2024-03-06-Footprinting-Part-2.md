@@ -46,9 +46,9 @@ toc_icon: "terminal"
 
 The <b>Footprinting</b> module consists of eleven sub-modules. This write-up is continuation of the previous one and focuses on covering the middle section of this module, providing detailed explanations and analysis for each.
 
-7. DNS
-8. SMTP
-9. IMAP
+4. DNS
+5. SMTP
+6. IMAP
 
 ## 4. DNS
 **Task 1:** Interact with the target DNS using its IP address and enumerate the FQDN of it for the "inlanefreight.htb" domain.
@@ -221,6 +221,11 @@ Connected to 10.129.245.156.
 Escape character is '^]'.
 220 InFreight ESMTP v2.11
 ```
+
+# 6. IMAP
+
+**Task 1:**  Enumerate the SMTP service and submit the banner, including its version as the answer.
+{: .notice}
 
 # Conclusion
 
