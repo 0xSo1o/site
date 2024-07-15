@@ -63,30 +63,29 @@ Let's start with enumerating the target DNS by using the following <b>dig ns</b>
 └─$ dig inlanefreight.htb @10.129.245.156
 ```
 ```
-; <<>> DiG 9.19.19-1-Debian <<>> ns inlanefreight.htb @10.129.245.156
-;; global options: +cmd
-;; Got answer:
-;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 11861
-;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 2
-;; WARNING: recursion requested but not available
+<<>> DiG 9.19.19-1-Debian <<>> ns inlanefreight.htb @10.129.245.156
+global options: +cmd
+Got answer:
+->>HEADER<<- opcode: QUERY, status: NOERROR, id: 11861
+flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 2
+WARNING: recursion requested but not available
 
-;; OPT PSEUDOSECTION:
-; EDNS: version: 0, flags:; udp: 4096
-; COOKIE: 15b8a2fc4d46bd520100000065f439050017661c744bde19 (good)
-;; QUESTION SECTION:
-;inlanefreight.htb.             IN      NS
+OPT PSEUDOSECTION:
+EDNS: version: 0, flags:; udp: 4096
+COOKIE: 15b8a2fc4d46bd520100000065f439050017661c744bde19 (good)
+QUESTION SECTION:
+inlanefreight.htb.             IN      NS
 
-;; ANSWER SECTION:
+ANSWER SECTION:
 inlanefreight.htb.      604800  IN      NS      ns.inlanefreight.htb.
 
-;; ADDITIONAL SECTION:
+ADDITIONAL SECTION:
 ns.inlanefreight.htb.   604800  IN      A       127.0.0.1
 
-;; Query time: 1008 msec
-;; SERVER: 10.129.245.156#53(10.129.245.156) (UDP)
-;; WHEN: Date
-;; MSG SIZE  rcvd: 107
-
+Query time: 1008 msec
+SERVER: 10.129.245.156#53(10.129.245.156) (UDP)
+WHEN: Date
+MSG SIZE  rcvd: 107
 ```
 
  <span style="background-color: #38263ef0">Answer: ns.inlanefreight.htb</span>
@@ -105,8 +104,8 @@ We will continue enumerating with <b>dig axfr</b> command to see if get any resu
 └─$ dig axfr inlanefreight.htb @10.129.245.156
 ```
 ```
-; <<>> DiG 9.19.19-1-Debian <<>> axfr inlanefreight.htb @10.129.245.156
-;; global options: +cmd
+<<>> DiG 9.19.19-1-Debian <<>> axfr inlanefreight.htb @10.129.245.156
+global options: +cmd
 inlanefreight.htb.      604800  IN      SOA     inlanefreight.htb. root.inlanefreight.htb. 2 604800 86400 2419200 604800
 inlanefreight.htb.      604800  IN      TXT     "MS=ms97310371"
 inlanefreight.htb.      604800  IN      TXT     "atlassian-domain-verification=t1rKCy68JFszSdCKVpw64A1QksWdXuYFUeSXKU"
@@ -118,11 +117,10 @@ internal.inlanefreight.htb. 604800 IN   A       10.129.1.6
 mail1.inlanefreight.htb. 604800 IN      A       10.129.18.201
 ns.inlanefreight.htb.   604800  IN      A       127.0.0.1
 inlanefreight.htb.      604800  IN      SOA     inlanefreight.htb. root.inlanefreight.htb. 2 604800 86400 2419200 604800
-;; Query time: 2232 msec
-;; SERVER: 10.129.245.156#53(10.129.245.156) (TCP)
-;; WHEN: date
-;; XFR size: 11 records (messages 1, bytes 560)
-
+Query time: 2232 msec
+SERVER: 10.129.245.156#53(10.129.245.156) (TCP)
+WHEN: date
+XFR size: 11 records (messages 1, bytes 560)
 ```
 We can see that there is in fact a secondary name server <b>(internal.inlanefreight.htb)</b>. Let's enumerate it.
 
@@ -131,8 +129,8 @@ We can see that there is in fact a secondary name server <b>(internal.inlanefrei
 └─$ dig axfr internal.inlanefreight.htb @10.129.245.156
 ```
 ```
-; <<>> DiG 9.19.19-1-Debian <<>> axfr internal.inlanefreight.htb @10.129.245.156
-;; global options: +cmd
+<<>> DiG 9.19.19-1-Debian <<>> axfr internal.inlanefreight.htb @10.129.245.156
+global options: +cmd
 internal.inlanefreight.htb. 604800 IN   SOA     inlanefreight.htb. root.inlanefreight.htb. 2 604800 86400 2419200 604800
 internal.inlanefreight.htb. 604800 IN   TXT     "MS=ms97310371"
 internal.inlanefreight.htb. 604800 IN   TXT     "HTB{DN5_z0N3_7r4N5F3r_iskdufhcnlu34}"
@@ -148,11 +146,10 @@ ws1.internal.inlanefreight.htb. 604800 IN A     10.129.1.34
 ws2.internal.inlanefreight.htb. 604800 IN A     10.129.1.35
 wsus.internal.inlanefreight.htb. 604800 IN A    10.129.18.2
 internal.inlanefreight.htb. 604800 IN   SOA     inlanefreight.htb. root.inlanefreight.htb. 2 604800 86400 2419200 604800
-;; Query time: 28 msec
-;; SERVER: 10.129.245.156#53(10.129.245.156) (TCP)
-;; WHEN: date
-;; XFR size: 15 records (messages 1, bytes 677)
-
+Query time: 28 msec
+SERVER: 10.129.245.156#53(10.129.245.156) (TCP)
+WHEN: date
+XFR size: 15 records (messages 1, bytes 677)
 ```
 
  <span style="background-color: #38263ef0">Answer: HTB{DN5_z0N3_7r4N5F3r_iskdufhcnlu34}</span>
@@ -174,7 +171,6 @@ This task took us awhile to figure out and by no means is a obvious one. The ind
 ```console
 ┌──(solo㉿HTB)-[~]
 └─$ for sub in $(cat /home/fierce-hostlist.txt);do dig $sub.dev.inlanefreight.htb @10.129.245.156 | grep -v ';\|SOA' | sed -r '/^\s*$/d' | grep $sub | tee -a subdomains.txt;done
-
 ```
 ```
 dev1.dev.inlanefreight.htb. 604800 IN   A       10.12.3.6
@@ -182,8 +178,6 @@ ns.dev.inlanefreight.htb. 604800 IN     A       127.0.0.1
 win2k.dev.inlanefreight.htb. 604800 IN  A       10.12.3.203
 ```
 <span style="background-color: #38263ef0">Answer: win2k.dev.inlanefreight.htb</span>
-
-
 
 ## 5. SMTP
 
@@ -222,7 +216,7 @@ Escape character is '^]'.
 220 InFreight ESMTP v2.11
 ```
 
-# 6. IMAP
+## 6. IMAP
 
 **Task 1:**  TBA.
 {: .notice}
