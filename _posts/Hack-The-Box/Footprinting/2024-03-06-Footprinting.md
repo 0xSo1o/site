@@ -46,10 +46,6 @@ toc_icon: "terminal"
 
 The <b>Footprinting</b> module consists of eleven sub-modules. This write-up will focus on the coverage of the first three sections, providing detailed explanations and analysis for each.
 
-1. FTP
-2. SMB
-3. NFS
-
 ## 1. FTP
 **Task 1:** Which version of the FTP server is running on the target system? Submit the entire banner as the answer.
 {: .notice}
