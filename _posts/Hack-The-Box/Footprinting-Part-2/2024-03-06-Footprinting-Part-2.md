@@ -224,7 +224,7 @@ Escape character is '^]'.
 
 # 6. IMAP
 
-**Task 1:**  Enumerate the SMTP service and submit the banner, including its version as the answer.
+**Task 1:**  TBA.
 {: .notice}
 
 # Conclusion
