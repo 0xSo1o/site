@@ -50,6 +50,7 @@ The <b>Footprinting</b> module consists of eleven sub-modules. This write-up is 
 5. SMTP
 6. IMAP
 
+
 ## 4. DNS
 **Task 1:** Interact with the target DNS using its IP address and enumerate the FQDN of it for the "inlanefreight.htb" domain.
 {: .notice}
